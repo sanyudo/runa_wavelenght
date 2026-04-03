@@ -35,426 +35,111 @@ const gameContainer = document.querySelector('.game-container');
 
 // Now that all DOM elements are declared, we can parse the JSON and use the buttons.
 const cluesJSONString = `[
-    [
-        "Bad Company",
-        "Good Company"
-    ],
-    [
-        "Terrible Movie",
-        "Great Movie"
-    ],
-    [
-        "Forgettable Person",
-        "Memorable Person"
-    ],
-    [
-        "Culturally Insignificant",
-        "Culturally Significant"
-    ],
-    [
-        "Dry Food",
-        "Wet Food"
-    ],
-    [
-        "Easy to Do",
-        "Hard to Do"
-    ],
-    [
-        "Feels Bad",
-        "Feels Good"
-    ],
-    [
-        "Hairless",
-        "Hairy"
-    ],
-    [
-        "Hard to Remember",
-        "Easy to Remember"
-    ],
-    [
-        "Cold",
-        "Hot"
-    ],
-    [
-        "Inflexible",
-        "Flexible"
-    ],
-    [
-        "Clean Food",
-        "Messy Food"
-    ],
-    [
-        "Proper Utensil Food",
-        "Finger Food"
-    ],
-    [
-        "Want",
-        "Need"
-    ],
-    [
-        "Weird Thing to Own",
-        "Normal Thing to Own"
-    ],
-    [
-        "Poorly Made",
-        "Well Made"
-    ],
-    [
-        "Quiet Place",
-        "Loud Place"
-    ],
-    [
-        "Common",
-        "Rare"
-    ],
-    [
-        "Bad Influence",
-        "Role Model"
-    ],
-    [
-        "Pointy Animal",
-        "Round Animal"
-    ],
-    [
-        "Hard",
-        "Soft"
-    ],
-    [
-        "Ugly",
-        "Beautiful"
-    ],
-    [
-        "Underpaid Job",
-        "Overpaid Job"
-    ],
-    [
-        "Underrated Skill",
-        "Overrated Skill"
-    ],
-    [
-        "Unsexy Emoji",
-        "Sexy Emoji"
-    ],
-    [
-        "Useless",
-        "Useful"
-    ],
-    [
-        "Villain",
-        "Hero"
-    ],
-    [
-        "Worst Day Ever",
-        "Best Day Ever"
-    ],
-    [
-        "Boring Hobby",
-        "Exciting Hobby"
-    ],
-    [
-        "Useless Superpower",
-        "Awesome Superpower"
-    ],
-    [
-        "Lame Party Trick",
-        "Cool Party Trick"
-    ],
-    [
-        "Terrible First Date Spot",
-        "Perfect First Date Spot"
-    ],
-    [
-        "Awkward Conversation Topic",
-        "Engaging Conversation Topic"
-    ],
-    [
-        "Worst Pizza Topping",
-        "Best Pizza Topping"
-    ],
-    [
-        "Annoying Sound",
-        "Satisfying Sound"
-    ],
-    [
-        "Uncomfortable Clothing",
-        "Comfy Clothing"
-    ],
-    [
-        "Worst Smell",
-        "Best Smell"
-    ],
-    [
-        "Boring Class Subject",
-        "Fascinating Class Subject"
-    ],
-    [
-        "Terrible Gift",
-        "Thoughtful Gift"
-    ],
-    [
-        "Unhealthy Habit",
-        "Healthy Habit"
-    ],
-    [
-        "Worst Chore",
-        "Most Satisfying Chore"
-    ],
-    [
-        "Forgettable Song",
-        "Catchy Song"
-    ],
-    [
-        "Useless App",
-        "Must-Have App"
-    ],
-    [
-        "Terrible Supervillain Name",
-        "Awesome Superhero Name"
-    ],
-    [
-        "Worst Flavor",
-        "Best Flavor"
-    ],
-    [
-        "Boring Museum Exhibit",
-        "Mind-Blowing Museum Exhibit"
-    ],
-    [
-        "Terrible Band Name",
-        "Awesome Band Name"
-    ],
-    [
-        "Worst Yearbook Quote",
-        "Best Yearbook Quote"
-    ],
-    [
-        "Lame Excuse",
-        "Believable Excuse"
-    ],
-    [
-        "Terrible Mascot",
-        "Lovable Mascot"
-    ],
-    [
-        "Worst Invention",
-        "Life-Changing Invention"
-    ],
-    [
-        "Annoying Commercial",
-        "Memorable Commercial"
-    ],
-    [
-        "Terrible Pickup Line",
-        "Smooth Pickup Line"
-    ],
-    [
-        "Worst Sandwich Filling",
-        "Best Sandwich Filling"
-    ],
-    [
-        "Boring Screensaver",
-        "Hypnotic Screensaver"
-    ],
-    [
-        "Useless Life Hack",
-        "Game-Changing Life Hack"
-    ],
-    [
-        "Terrible Sitcom Premise",
-        "Hilarious Sitcom Premise"
-    ],
-    [
-        "Worst Karaoke Song",
-        "Crowd-Pleasing Karaoke Song"
-    ],
-    [
-        "Annoying Social Media Trend",
-        "Fun Social Media Trend"
-    ],
-    [
-        "Terrible Stage Name",
-        "Unforgettable Stage Name"
-    ],
-    [
-        "Worst Tongue Twister",
-        "Most Challenging Tongue Twister"
-    ],
-    [
-        "Boring Screensaver",
-        "Mesmerizing Screensaver"
-    ],
-    [
-        "Terrible Tattoo",
-        "Meaningful Tattoo"
-    ],
-    [
-        "Worst Bumper Sticker",
-        "Clever Bumper Sticker"
-    ],
-    [
-        "Annoying Catchphrase",
-        "Iconic Catchphrase"
-    ],
-    [
-        "Terrible Team Name",
-        "Intimidating Team Name"
-    ],
-    [
-        "Worst Flavor Combination",
-        "Unexpectedly Delicious Flavor Combination"
-    ],
-    [
-        "Useless College Course",
-        "Life-Changing College Course"
-    ],
-    [
-        "Terrible Podcast Topic",
-        "Binge-Worthy Podcast Topic"
-    ],
-    [
-        "Worst Theme Park Ride",
-        "Thrilling Theme Park Ride"
-    ],
-    [
-        "Annoying Pet Trick",
-        "Impressive Pet Trick"
-    ],
-    [
-        "Terrible Workout",
-        "Effective Workout"
-    ],
-    [
-        "Worst Board Game",
-        "Addictive Board Game"
-    ],
-    [
-        "Annoying Habit",
-        "Endearing Quirk"
-    ],
-    [
-        "Terrible Prank",
-        "Harmless Prank"
-    ],
-    [
-        "Worst Cereal Mascot",
-        "Beloved Cereal Mascot"
-    ],
-    [
-        "Annoying Alarm Sound",
-        "Gentle Wake-Up Alarm"
-    ],
-    [
-        "Terrible Vacation Spot",
-        "Dream Vacation Destination"
-    ],
-    [
-        "Worst Toy",
-        "Must-Have Toy"
-    ],
-    [
-        "Annoying TV Character",
-        "Fan-Favorite TV Character"
-    ],
-    [
-        "Terrible Superpower Side Effect",
-        "Awesome Superpower Perk"
-    ],
-    [
-        "Worst Ice Cream Flavor",
-        "Innovative Ice Cream Flavor"
-    ],
-    [
-        "Annoying Text Abbreviation",
-        "Useful Text Abbreviation"
-    ],
-    [
-        "Terrible Costume Idea",
-        "Creative Costume Idea"
-    ],
-    [
-        "Worst Cooking Mistake",
-        "Game-Changing Cooking Tip"
-    ],
-    [
-        "Annoying Exercise",
-        "Fun Exercise"
-    ],
-    [
-        "Terrible Breakup Method",
-        "Respectful Breakup Method"
-    ],
-    [
-        "Worst Motivational Poster",
-        "Actually Motivating Poster"
-    ],
-    [
-        "Annoying Car Feature",
-        "Useful Car Feature"
-    ],
-    [
-        "Terrible Hiding Spot",
-        "Clever Hiding Spot"
-    ],
-    [
-        "Worst Trend from Your Parents' Era",
-        "Cool Retro Trend"
-    ],
-    [
-        "Annoying Tourist Behavior",
-        "Respectful Tourist Behavior"
-    ],
-    [
-        "Terrible Roommate Habit",
-        "Ideal Roommate Quality"
-    ],
-    [
-        "Worst Reason to Call in Sick",
-        "Legitimate Reason to Call in Sick"
-    ],
-    [
-        "Annoying Phone Notification",
-        "Important Phone Notification"
-    ],
-    [
-        "Terrible Boat Name",
-        "Clever Boat Name"
-    ],
-    [
-        "Worst Reason to Break Up",
-        "Valid Reason to Break Up"
-    ],
-    [
-        "Annoying Gym Behavior",
-        "Proper Gym Etiquette"
-    ],
-    [
-        "Terrible Airline",
-        "Top-Rated Airline"
-    ],
-    [
-        "Worst Bathroom Graffiti",
-        "Profound Bathroom Graffiti"
-    ],
-    [
-        "Annoying Concert Behavior",
-        "Considerate Concert Behavior"
-    ],
-    [
-        "Terrible Hogwarts House",
-        "Best Hogwarts House"
-    ],
-    [
-        "Worst Reason to Get a Pet",
-        "Great Reason to Get a Pet"
-    ],
-    [
-        "Annoying Email Subject Line",
-        "Attention-Grabbing Email Subject Line"
-    ],
-    [
-        "Terrible Wifi Network Name",
-        "Clever Wifi Network Name"
-    ]
+    ["Mala compañía", "Buena compañía"],
+    ["Película terrible", "Gran película"],
+    ["Persona olvidable", "Persona memorable"],
+    ["Culturalmente insignificante", "Culturalmente significativo"],
+    ["Comida seca", "Comida húmeda"],
+    ["Fácil de hacer", "Difícil de hacer"],
+    ["Se siente mal", "Se siente bien"],
+    ["Sin pelo", "Peludo"],
+    ["Difícil de recordar", "Fácil de recordar"],
+    ["Frío", "Caliente"],
+    ["Inflexible", "Flexible"],
+    ["Comida limpia", "Comida que ensucia"],
+    ["Comida con cubiertos", "Comida para comer con las manos"],
+    ["Deseo", "Necesidad"],
+    ["Cosa rara de tener", "Cosa normal de tener"],
+    ["Mal hecho", "Bien hecho"],
+    ["Lugar tranquilo", "Lugar ruidoso"],
+    ["Común", "Raro"],
+    ["Mala influencia", "Modelo a seguir"],
+    ["Animal puntiagudo", "Animal redondeado"],
+    ["Duro", "Blando"],
+    ["Feo", "Hermoso"],
+    ["Trabajo mal pagado", "Trabajo demasiado bien pagado"],
+    ["Habilidad infravalorada", "Habilidad sobrevalorada"],
+    ["Emoji nada sexy", "Emoji sexy"],
+    ["Inútil", "Útil"],
+    ["Villano", "Héroe"],
+    ["El peor día de la vida", "El mejor día de la vida"],
+    ["Pasatiempo aburrido", "Pasatiempo emocionante"],
+    ["Superpoder inútil", "Superpoder increíble"],
+    ["Truco de fiesta cutre", "Truco de fiesta genial"],
+    ["Mal sitio para una primera cita", "Sitio perfecto para una primera cita"],
+    ["Tema de conversación incómodo", "Tema de conversación interesante"],
+    ["El peor ingrediente para pizza", "El mejor ingrediente para pizza"],
+    ["Sonido molesto", "Sonido satisfactorio"],
+    ["Ropa incómoda", "Ropa cómoda"],
+    ["El peor olor", "El mejor olor"],
+    ["Asignatura aburrida", "Asignatura fascinante"],
+    ["Regalo terrible", "Regalo detallista"],
+    ["Hábito poco saludable", "Hábito saludable"],
+    ["La peor tarea doméstica", "La tarea doméstica más satisfactoria"],
+    ["Canción olvidable", "Canción pegadiza"],
+    ["Aplicación inútil", "Aplicación imprescindible"],
+    ["Mal nombre de supervillano", "Nombre de superhéroe genial"],
+    ["El peor sabor", "El mejor sabor"],
+    ["Exposición de museo aburrida", "Exposición de museo asombrosa"],
+    ["Mal nombre de banda", "Nombre de banda genial"],
+    ["La peor cita de anuario", "La mejor cita de anuario"],
+    ["Excusa mala", "Excusa creíble"],
+    ["Mascota terrible", "Mascota adorable"],
+    ["El peor invento", "Invento que te cambia la vida"],
+    ["Anuncio molesto", "Anuncio memorable"],
+    ["Frase de ligue mala", "Frase de ligue ingeniosa"],
+    ["El peor relleno de sándwich", "El mejor relleno de sándwich"],
+    ["Salvapantallas aburrido", "Salvapantallas hipnótico"],
+    ["Truco de vida inútil", "Truco de vida revolucionario"],
+    ["Premisa de sitcom mala", "Premisa de sitcom divertidísima"],
+    ["La peor canción de karaoke", "Canción de karaoke que gusta a todos"],
+    ["Tendencia de redes sociales molesta", "Tendencia de redes sociales divertida"],
+    ["Mal nombre artístico", "Nombre artístico inolvidable"],
+    ["El peor trabalenguas", "El trabalenguas más difícil"],
+    ["Salvapantallas aburrido", "Salvapantallas fascinante"],
+    ["Tatuaje terrible", "Tatuaje con significado"],
+    ["La peor pegatina para el coche", "Pegatina de coche ingeniosa"],
+    ["Frase característica molesta", "Frase característica icónica"],
+    ["Mal nombre de equipo", "Nombre de equipo intimidante"],
+    ["Peor combinación de sabores", "Combinación de sabores inesperadamente deliciosa"],
+    ["Asignatura universitaria inútil", "Asignatura universitaria que te cambia la vida"],
+    ["Mal tema para un podcast", "Tema de podcast adictivo"],
+    ["La peor atracción de parque temático", "Atracción de parque temático emocionante"],
+    ["Truco de mascota molesto", "Truco de mascota impresionante"],
+    ["Entrenamiento terrible", "Entrenamiento efectivo"],
+    ["El peor juego de mesa", "Juego de mesa adictivo"],
+    ["Hábito molesto", "Particularidad entrañable"],
+    ["Broma pesada", "Broma inofensiva"],
+    ["Peor mascota de cereales", "Querida mascota de cereales"],
+    ["Sonido de alarma molesto", "Alarma de despertador suave"],
+    ["Mal sitio de vacaciones", "Destino de vacaciones soñado"],
+    ["El peor juguete", "Juguete imprescindible"],
+    ["Personaje de TV molesto", "Personaje de TV favorito de los fans"],
+    ["Mal efecto secundario de un superpoder", "Gran ventaja de un superpoder"],
+    ["El peor sabor de helado", "Sabor de helado innovador"],
+    ["Abreviatura de texto molesta", "Abreviatura de texto útil"],
+    ["Mala idea de disfraz", "Idea de disfraz creativa"],
+    ["El peor error de cocina", "Consejo de cocina revolucionario"],
+    ["Ejercicio molesto", "Ejercicio divertido"],
+    ["Forma terrible de romper", "Forma respetuosa de romper"],
+    ["El peor póster motivacional", "Póster realmente motivador"],
+    ["Característica del coche molesta", "Característica del coche útil"],
+    ["Mal escondite", "Escondite ingenioso"],
+    ["Peor tendencia de la época de tus padres", "Tendencia retro genial"],
+    ["Comportamiento de turista molesto", "Comportamiento de turista respetuoso"],
+    ["Mal hábito de compañero de piso", "Cualidad del compañero de piso ideal"],
+    ["Peor excusa para faltar al trabajo", "Razón legítima para faltar al trabajo"],
+    ["Notificación de móvil molesta", "Notificación de móvil importante"],
+    ["Mal nombre para un barco", "Nombre para un barco ingenioso"],
+    ["La peor razón para romper", "Razón válida para romper"],
+    ["Comportamiento de gimnasio molesto", "Etiqueta de gimnasio adecuada"],
+    ["Aerolínea terrible", "Aerolínea de primera clase"],
+    ["El peor grafiti de baño", "Grafiti de baño profundo"],
+    ["Comportamiento molesto en un concierto", "Comportamiento respetuoso en un concierto"],
+    ["Peor casa de Hogwarts", "Mejor casa de Hogwarts"],
+    ["La peor razón para tener mascota", "Gran razón para tener mascota"],
+    ["Asunto de correo molesto", "Asunto de correo que llama la atención"],
+    ["Mal nombre de red Wifi", "Nombre de red Wifi ingenioso"]
 ]`;
 
 try {

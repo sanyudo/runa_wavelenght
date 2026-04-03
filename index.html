@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wavelength Game</title>
+    <title>La Runa - Wavelength 2026</title>
     <meta name="description" content="Play Wavelength, the popular social deduction party game, online for free! Guess where the target is on the spectrum between two opposing concepts. Perfect for friends and family." />
     <meta name="keywords" content="wavelength, board game, online game, party game, social deduction, free game, spectrum, guess, multiplayer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -30,33 +30,34 @@
 <body>
 
     <div id="howToPlayModal" class="modal">
-            <div class="modal-content">
-                <h2>How to Play Wavelength</h2>
-                <div class="modal-body">
-                    <ol>
-                        <li>A pair of opposing concepts will be displayed.</li>
-                        <li>The Psychic gives a clue where the target is located
-                            ON THE SPECTRUM between the two concepts</li>
-                        <ul>
-                            <li>For example between HOT and COLD</li>
-                            <li>The Psychic can say something like COFFEE!</li>
-                        </ul>
-                        <li>Now it’s up to the Psychic’s team to discuss the
-                            clue and decide where to turn the dial</li>
-                        <li>Click and drag the needle to set your guess.</li>
-                        <li>Click "Hide Target" to lock in your guess.</li>
-                        <li>Click "Reveal Target" to see how close you were.</li>
-                        <li>Scoring:
-                            <ul>
-                                <li><span class="score-5">5 points:</span> Bull's eye (dark blue)</li>
-                                <li><span class="score-3">3 points:</span> Close (yellow)</li>
-                                <li><span class="score-1">1 point:</span> Near (red)</li>
-                                <li><span class="score-0">0 points:</span> Miss</li>
-                            </ul>
-                        </li>
-                        <li>Click "Next Round" to continue or "New Game" to start over.</li>
-                    </ol>
-                </div>
+           <div class="modal-content">
+    <h2>Cómo jugar a Wavelength</h2>
+    <div class="modal-body">
+        <ol>
+            <li>Se mostrará un par de conceptos opuestos.</li>
+            <li>El Psíquico da una pista sobre dónde se encuentra el objetivo
+                EN EL ESPECTRO entre los dos conceptos.</li>
+            <ul>
+                <li>Por ejemplo, entre CALIENTE y FRÍO.</li>
+                <li>¡El Psíquico puede decir algo como CAFÉ!</li>
+            </ul>
+            <li>Ahora le toca al equipo del Psíquico debatir la
+                pista y decidir hacia dónde girar el dial.</li>
+            <li>Haz clic y arrastra la aguja para establecer tu suposición.</li>
+            <li>Haz clic en "Ocultar Objetivo" para fijar tu elección.</li>
+            <li>Haz clic en "Revelar Objetivo" para ver qué tan cerca estuviste.</li>
+            <li>Puntuación:
+                <ul>
+                    <li><span class="score-5">5 puntos:</span> Diana (azul oscuro)</li>
+                    <li><span class="score-3">3 puntos:</span> Cerca (amarillo)</li>
+                    <li><span class="score-1">1 punto:</span> Próximo (rojo)</li>
+                    <li><span class="score-0">0 puntos:</span> Fallo</li>
+                </ul>
+            </li>
+            <li>Haz clic en "Siguiente Ronda" para continuar o en "Nuevo Juego" para empezar de nuevo.</li>
+        </ol>
+    </div>
+</div>
                 <button class="close-button">Got it!</button>
             </div>
         </div>
@@ -65,9 +66,9 @@
         <h1 class="title">Wavelength</h1>
         <div id="topRightButtons">
             <!-- NEW CHANGE LOG BUTTON -->
-            <button id="howToPlayButton" class="how-to-play">How to Play</button>
+            <button id="howToPlayButton" class="how-to-play">Cómo jugar</button>
             <button id="newGameButton" style="background-color: red; color: white">
-                New Game
+                Nueva partida
             </button>
         </div>
         <!-- NEW CHANGE LOG MODAL -->
@@ -95,7 +96,7 @@
         </div>
         <h2 id="turn-indicator"></h2>
         <div id="psychic-info-balloon" class="info-balloon">
-            <p>Think of a word to clue the spectrum. Then, 'Hide for Guessers'.</p>
+            <p>Piensa en una palabra que indique el lugar del espectro. Luego pulsa 'Ocultar'.</p>
         </div>
         <div id="score"></div> <!-- MOVED HERE -->
 
@@ -112,16 +113,16 @@
                 <div class="clue" id="rightClue"></div>
             </div>
             <div id="revealOverlay" class="reveal-overlay">
-                <p>Tap to show wavelength and start the game</p>
+                <p>Pulsa para mostrar Wavelength y comenzar</p>
             </div>
         </div>
 
         <div class="controls">
-            <button id="toggleButton">Hide Target</button>
-            <button id="skipQuestionButton" style="display: none;">Skip Question</button> <!-- NEW BUTTON -->
-            <button id="nextRoundButton" style="display: none;">Next Round</button> <!-- RENAMED TEXT & HIDDEN -->
+            <button id="toggleButton">Ocultar Objetivo</button>
+            <button id="skipQuestionButton" style="display: none;">Saltar pregunta</button> <!-- NEW BUTTON -->
+            <button id="nextRoundButton" style="display: none;">Siguiente ronda</button> <!-- RENAMED TEXT & HIDDEN -->
         </div>
-        <div id="totalScore">Total Score: 0</div> <!-- Kept original position for totalScore -->
+        <div id="totalScore">Puntuación total: 0</div> <!-- Kept original position for totalScore -->
 
         <script src="script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>

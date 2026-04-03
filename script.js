@@ -26,128 +26,26 @@ let totalScore = 0;
 let canMoveNeedle = false;
 let isPostGuessPhase = false;
 
-let clues;
+let clues = [];
 
-const gameContainer = document.querySelector('.game-container');
-
-
-
-
-// Now that all DOM elements are declared, we can parse the JSON and use the buttons.
-const cluesJSONString = `[
-    ["Mala compañía", "Buena compañía"],
-    ["Película terrible", "Gran película"],
-    ["Persona olvidable", "Persona memorable"],
-    ["Culturalmente insignificante", "Culturalmente significativo"],
-    ["Comida seca", "Comida húmeda"],
-    ["Fácil de hacer", "Difícil de hacer"],
-    ["Se siente mal", "Se siente bien"],
-    ["Sin pelo", "Peludo"],
-    ["Difícil de recordar", "Fácil de recordar"],
-    ["Frío", "Caliente"],
-    ["Inflexible", "Flexible"],
-    ["Comida limpia", "Comida que ensucia"],
-    ["Comida con cubiertos", "Comida para comer con las manos"],
-    ["Deseo", "Necesidad"],
-    ["Cosa rara de tener", "Cosa normal de tener"],
-    ["Mal hecho", "Bien hecho"],
-    ["Lugar tranquilo", "Lugar ruidoso"],
-    ["Común", "Raro"],
-    ["Mala influencia", "Modelo a seguir"],
-    ["Animal puntiagudo", "Animal redondeado"],
-    ["Duro", "Blando"],
-    ["Feo", "Hermoso"],
-    ["Trabajo mal pagado", "Trabajo demasiado bien pagado"],
-    ["Habilidad infravalorada", "Habilidad sobrevalorada"],
-    ["Emoji nada sexy", "Emoji sexy"],
-    ["Inútil", "Útil"],
-    ["Villano", "Héroe"],
-    ["El peor día de la vida", "El mejor día de la vida"],
-    ["Pasatiempo aburrido", "Pasatiempo emocionante"],
-    ["Superpoder inútil", "Superpoder increíble"],
-    ["Truco de fiesta cutre", "Truco de fiesta genial"],
-    ["Mal sitio para una primera cita", "Sitio perfecto para una primera cita"],
-    ["Tema de conversación incómodo", "Tema de conversación interesante"],
-    ["El peor ingrediente para pizza", "El mejor ingrediente para pizza"],
-    ["Sonido molesto", "Sonido satisfactorio"],
-    ["Ropa incómoda", "Ropa cómoda"],
-    ["El peor olor", "El mejor olor"],
-    ["Asignatura aburrida", "Asignatura fascinante"],
-    ["Regalo terrible", "Regalo detallista"],
-    ["Hábito poco saludable", "Hábito saludable"],
-    ["La peor tarea doméstica", "La tarea doméstica más satisfactoria"],
-    ["Canción olvidable", "Canción pegadiza"],
-    ["Aplicación inútil", "Aplicación imprescindible"],
-    ["Mal nombre de supervillano", "Nombre de superhéroe genial"],
-    ["El peor sabor", "El mejor sabor"],
-    ["Exposición de museo aburrida", "Exposición de museo asombrosa"],
-    ["Mal nombre de banda", "Nombre de banda genial"],
-    ["La peor cita de anuario", "La mejor cita de anuario"],
-    ["Excusa mala", "Excusa creíble"],
-    ["Mascota terrible", "Mascota adorable"],
-    ["El peor invento", "Invento que te cambia la vida"],
-    ["Anuncio molesto", "Anuncio memorable"],
-    ["Frase de ligue mala", "Frase de ligue ingeniosa"],
-    ["El peor relleno de sándwich", "El mejor relleno de sándwich"],
-    ["Salvapantallas aburrido", "Salvapantallas hipnótico"],
-    ["Truco de vida inútil", "Truco de vida revolucionario"],
-    ["Premisa de sitcom mala", "Premisa de sitcom divertidísima"],
-    ["La peor canción de karaoke", "Canción de karaoke que gusta a todos"],
-    ["Tendencia de redes sociales molesta", "Tendencia de redes sociales divertida"],
-    ["Mal nombre artístico", "Nombre artístico inolvidable"],
-    ["El peor trabalenguas", "El trabalenguas más difícil"],
-    ["Salvapantallas aburrido", "Salvapantallas fascinante"],
-    ["Tatuaje terrible", "Tatuaje con significado"],
-    ["La peor pegatina para el coche", "Pegatina de coche ingeniosa"],
-    ["Frase característica molesta", "Frase característica icónica"],
-    ["Mal nombre de equipo", "Nombre de equipo intimidante"],
-    ["Peor combinación de sabores", "Combinación de sabores inesperadamente deliciosa"],
-    ["Asignatura universitaria inútil", "Asignatura universitaria que te cambia la vida"],
-    ["Mal tema para un podcast", "Tema de podcast adictivo"],
-    ["La peor atracción de parque temático", "Atracción de parque temático emocionante"],
-    ["Truco de mascota molesto", "Truco de mascota impresionante"],
-    ["Entrenamiento terrible", "Entrenamiento efectivo"],
-    ["El peor juego de mesa", "Juego de mesa adictivo"],
-    ["Hábito molesto", "Particularidad entrañable"],
-    ["Broma pesada", "Broma inofensiva"],
-    ["Peor mascota de cereales", "Querida mascota de cereales"],
-    ["Sonido de alarma molesto", "Alarma de despertador suave"],
-    ["Mal sitio de vacaciones", "Destino de vacaciones soñado"],
-    ["El peor juguete", "Juguete imprescindible"],
-    ["Personaje de TV molesto", "Personaje de TV favorito de los fans"],
-    ["Mal efecto secundario de un superpoder", "Gran ventaja de un superpoder"],
-    ["El peor sabor de helado", "Sabor de helado innovador"],
-    ["Abreviatura de texto molesta", "Abreviatura de texto útil"],
-    ["Mala idea de disfraz", "Idea de disfraz creativa"],
-    ["El peor error de cocina", "Consejo de cocina revolucionario"],
-    ["Ejercicio molesto", "Ejercicio divertido"],
-    ["Forma terrible de romper", "Forma respetuosa de romper"],
-    ["El peor póster motivacional", "Póster realmente motivador"],
-    ["Característica del coche molesta", "Característica del coche útil"],
-    ["Mal escondite", "Escondite ingenioso"],
-    ["Peor tendencia de la época de tus padres", "Tendencia retro genial"],
-    ["Comportamiento de turista molesto", "Comportamiento de turista respetuoso"],
-    ["Mal hábito de compañero de piso", "Cualidad del compañero de piso ideal"],
-    ["Peor excusa para faltar al trabajo", "Razón legítima para faltar al trabajo"],
-    ["Notificación de móvil molesta", "Notificación de móvil importante"],
-    ["Mal nombre para un barco", "Nombre para un barco ingenioso"],
-    ["La peor razón para romper", "Razón válida para romper"],
-    ["Comportamiento de gimnasio molesto", "Etiqueta de gimnasio adecuada"],
-    ["Aerolínea terrible", "Aerolínea de primera clase"],
-    ["El peor grafiti de baño", "Grafiti de baño profundo"],
-    ["Comportamiento molesto en un concierto", "Comportamiento respetuoso en un concierto"],
-    ["Peor casa de Hogwarts", "Mejor casa de Hogwarts"],
-    ["La peor razón para tener mascota", "Gran razón para tener mascota"],
-    ["Asunto de correo molesto", "Asunto de correo que llama la atención"],
-    ["Mal nombre de red Wifi", "Nombre de red Wifi ingenioso"]
-]`;
-
-try {
-    clues = JSON.parse(cluesJSONString);
-} catch (error) {
-    console.error('Error parsing clues JSON:', error);
-    clues = []; // Ensure clues is always an array even if parsing fails
-}
+// Load clues from external JSON file
+fetch('clues.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to load clues.json: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        clues = data;
+        updateDebugStatus("Clues loaded from clues.json");
+    })
+    .catch(error => {
+        console.error('Error loading clues from clues.json:', error);
+        // Fallback to empty array or hardcoded clues
+        clues = [];
+        updateDebugStatus(`Error loading clues: ${error.message}`);
+    });
 
 
 // Helper to update debug status on screen

@@ -307,7 +307,7 @@ function showRevealOverlay() {
     skipQuestionButton.style.display = "none";
     nextRoundButton.style.display = "none";
     scoreElement.textContent = "";
-    turnIndicator.textContent = "New Round Ready!";
+    turnIndicator.textContent = "Nueva Ronda disponible!";
     gameContainer.classList.remove('psychic-turn');
     hideNeedle();
     canMoveNeedle = false;
@@ -364,13 +364,13 @@ function reconstructGameUI(loadedState) {
         // Assuming currentAngle is still 0 after load, we re-use saved targetAngle.
         // The previous needle angle is not saved, so we can't show "how close it was" accurately,
         // just the score.
-        scoreElement.textContent = `${teams[currentTeamIndex].name} scored ${calculateScore(loadedState.targetAngle)} points!`;
+        scoreElement.textContent = `${teams[currentTeamIndex].name} ha conseguido ${calculateScore(loadedState.targetAngle)} puntos!`;
     } else if (!loadedState.isTargetVisible) { // Guesser's turn
         // Hide target area, show needle, toggle button says "Reveal"
         revealOverlay.classList.remove('active');
         revealOverlay.style.display = 'none';
         targetArea.style.display = "none";
-        toggleButton.textContent = "Reveal Target";
+        toggleButton.textContent = "Revelar Objetivo";
         toggleButton.style.display = "inline-block";
         scoreElement.textContent = "";
         showNeedle();
@@ -385,7 +385,7 @@ function reconstructGameUI(loadedState) {
         revealOverlay.classList.remove('active');
         revealOverlay.style.display = 'none';
         targetArea.style.display = "block";
-        toggleButton.textContent = "Hide for Guessers";
+        toggleButton.textContent = "Ocultar";
         toggleButton.style.display = "inline-block";
         skipQuestionButton.style.display = "inline-block";
         nextRoundButton.style.display = "none";
@@ -488,11 +488,11 @@ function setPsychicView() {
     updateCurrentTeamIndicator("psychic"); // Update the "Now Playing" pill for psychic turn
     
     gameContainer.classList.add('psychic-turn');
-    turnIndicator.textContent = "YOU ARE THE PSYCHIC";
+    turnIndicator.textContent = "ERES EL PSÍQUICO";
     psychicInfoBalloon.style.display = "block"; // Show info balloon for psychic
 
     targetArea.style.display = "block";
-    toggleButton.textContent = "Hide for Guessers";
+    toggleButton.textContent = "Ocultar";
     toggleButton.style.display = "inline-block";
     skipQuestionButton.style.display = "inline-block";
     nextRoundButton.style.display = "none";
@@ -506,11 +506,11 @@ function setGuesserView() {
     isPostGuessPhase = false; // Ensure this is false for the guesser phase
     
     gameContainer.classList.remove('psychic-turn');
-    turnIndicator.textContent = "GUESS THE WAVELENGTH!";
+    turnIndicator.textContent = "ADIVINA EL OBJETIVO!";
     psychicInfoBalloon.style.display = "none"; // Hide info balloon for guesser
 
     targetArea.style.display = "none";
-    toggleButton.textContent = "Reveal Target";
+    toggleButton.textContent = "Revelar Objetivo";
     scoreElement.textContent = "";
     showNeedle();
     updateCurrentTeamIndicator("guesser"); // Update the "Now Playing" pill for guesser turn
